@@ -1,0 +1,201 @@
+﻿@using System.Configuration
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- Welcome   -->
+<section id="welcome" class="welcome-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Welcome Back in ASP .NET</h1>
+                <h3>Perkenalkan saya <b><a href="https://sekawan.xyz/page/1-portofolio" target="_blank">Yusuf Adhi Tomo</a></b> saat ini sedang bekerja di <a href="https://salt.id/" target="_blank">SALT</a></h3>
+                <p>
+                    Di Aplikasi ini saya menggunakan Entity Framework 6, MSSSQL Server 2017, RESTful API, dan Tools Visual Studio 2017.
+                    Disini saya menggunakan AJAX untuk <i>Add Invoice</i> selebihkan menggunakan form biasa. Terimakasih kepada Bapak/Ibu
+                    yang telah mereview aplikasi yang saya buat ini. Jika Bapak/Ibu berkenan mengundang saya silahkan hubungi saya di
+                    <a href="https://api.whatsapp.com/send?phone=6289664451557" target="_blank" class="wa">
+                        <img src="@Links.Assets.images.icon_wa_png" class="icon-wa" /> Link ini
+                    </a>
+                </p>
+                <p>Berikut Hasil Aplikasi</p>
+                <ul class="nav nav-pills rata">
+                    <li class="active"><a data-toggle="pill" href="#home">Costumers</a></li>
+                    <li><a data-toggle="pill" href="#menu1">Catalogue</a></li>
+                    <li><a data-toggle="pill" href="#menu2">Invoice</a></li>
+                    <li><a data-toggle="pill" href="#menu3">Add Costumers</a></li>
+                    <li><a data-toggle="pill" href="#menu4">Add Catalogue</a></li>
+                    <li><a data-toggle="pill" href="#menu5">Add Invoice</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                        <h3>Readable Function</h3>
+                        <p>Artinya sekali lirik dari namanya, programmer lain sudah harus bisa menebak apa guna dari fungsi tersebut. Fungsi yang anda buat hendaklah bisa dibaca dan dimengerti dengan mudah melalui namanya. Hal ini sangatlah penting, baik bagi anda yang mengikuti gaya prosedural ataupun OOP.</p>
+                        <p>&nbsp;</p>
+                        <a class="btn btn-primary salt page-scroll" href="#about">Click To Scroll Down!</a>
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                        <h3>Konsisten</h3>
+                        <p>Anda harus konsisten ketika menulis kode. Misalnya dalam memberi nama variabel, nama objek, ukuran objek, perataan kode, penggunaan jenis huruf, case sensitive, dll. Disini, kita bisa menentukan sendiri aturan kita sebelum mulai mengerjakan proyek. </p>
+                        <p>&nbsp;</p>
+                        <a class="btn btn-primary salt page-scroll" href="#whatwedo">Click To Scroll Down!</a>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                        <h3>Rapi</h3>
+                        <p>Layaknya sebuah desain, kode pun harus ada tabulasi / text indentation agar kode dapat dibaca dengan mudah dan mata tidak terlalu sulit untuk menemukan kode apa yang akan dicari. Terlebih bagi programmer lain yang akan membantu anda, atau meneruskan proyek anda.</p>
+                        <p>&nbsp;</p>
+                        <a class="btn btn-primary salt page-scroll" href="#contact">Click To Scroll Down!</a>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                        <h3>Customers</h3>
+                        <p>Menambahkan komentar-komentar atau keterangan deskriptif mengenai fungsi tersebut dan bagaimana cara menggunakannya. Meskipun ukuran dokumen anda jadi semakin besar, namun dari sini anda meninggalkan petunjuk berupa informasi bagi mereka yang menggunakan kode anda, tanpa harus bertanya-tanya terus pada anda.</p>
+                        <p>&nbsp;</p>
+                        <a class="btn btn-primary salt page-scroll" href="#Customers">Click To Scroll Down!</a>
+                    </div>
+                    <div id="menu4" class="tab-pane fade">
+                        <h3>Catalogue</h3>
+                        <p>Programmer bukanlah seorang pejuang solo, banyak programmer di dunia ini yang saling membantu dan memanfaatkan kode milik programmer lain. Untuk itu, gunakan gaya penulisan standard yang sudah ditentukan oleh bahasa pemrograman yang anda pakai. Selain anda mengikuti peraturan, anda juga menjadi seorang yang sosialis dalam hal sharing kode anda. Dengan begitu, anda bisa mendapatkan teman serta kode yang anda buat sangat bermanfaat bagi orang lain.</p>
+                        <p>&nbsp;</p>
+                        <a class="btn btn-primary salt page-scroll" href="#Catalogue">Click To Scroll Down!</a>
+                    </div>
+                    <div id="menu5" class="tab-pane fade">
+                        <h3>Tulis Sesimpel dan Seefisien mungkin.</h3>
+                        <p>Semakin simpel sebuah kode, maka akan semakin mudah kode tersebut dibaca (baik oleh compiler maupun oleh pembuat). Makanya, mulai sekarang tulis setiap kode anda sesederhana dan seefisien mungkin agar proses compiling kode anda jauh lebih cepat. Maksimalkan juga built-in function yang telah disediakan oleh bahasa pemrograman yang anda gunakan.</p>
+                        <p>&nbsp;</p>
+                        <a class="btn btn-primary salt page-scroll" href="#Invoice">Click To Scroll Down!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- What we do Section -->
+<section id="Customers" class="whatwedo-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Form Add Customers</h1>
+                <br />
+                <form class="form-inline" action="/action_page.php">
+                    <div class="form-group">
+                        <label for="email">Full Name : </label>
+                        <input type="text" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Username :</label>
+                        <input type="text" class="form-control" id="pwd" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password :</label>
+                        <input type="password" class="form-control" id="pwd" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary salt page-scroll">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Catalogue Section -->
+<section id="Catalogue" class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Form Add Catalogue</h1>
+                <br />
+                <form class="form-horizontal" action="/action_page.php">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Code :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Name Product :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Quantity :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Price :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Description :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What we do Section -->
+<section id="Invoice" class="whatwedo-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" ng-app>
+                <h1>Form Add Invoice</h1>
+                <br />
+                <form class="form-horizontal" action="/action_page.php">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Customer :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Name Product :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Quantity :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Price :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Description :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                First Name:
+                <input type="text" ng-model="fname" />
+                <br /> Last Name:
+                <input type="text" ng-model="lname" />
+                <br /> Result: {{fname+' '+lname}}
+            </div>
+        </div>
+    </div>
+</section>

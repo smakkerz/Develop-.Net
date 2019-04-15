@@ -1,0 +1,10 @@
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\bin\Debug\Common.Lib.dll
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\bin\Debug\Common.Lib.pdb
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\obj\Debug\Common.Lib.csproj.CoreCompileInputs.cache
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\obj\Debug\Common.Lib.dll
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\obj\Debug\Common.Lib.pdb
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\bin\Debug\Scrypt.dll
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\obj\Debug\Common.Lib.csprojAssemblyReference.cache
+C:\Users\tekad\source\repos\Develop.API\Common.Lib\obj\Debug\Common.Lib.csproj.CopyComplete

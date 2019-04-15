@@ -1,0 +1,6 @@
+D:\Data\Develop.API\Develop.Model\bin\Debug\Develop.Model.dll
+D:\Data\Develop.API\Develop.Model\bin\Debug\Develop.Model.pdb
+D:\Data\Develop.API\Develop.Model\obj\Debug\Develop.Model.csproj.CoreCompileInputs.cache
+D:\Data\Develop.API\Develop.Model\obj\Debug\Develop.Model.dll
+D:\Data\Develop.API\Develop.Model\obj\Debug\Develop.Model.pdb
+D:\Data\Develop.API\Develop.Model\obj\Debug\Develop.Model.csprojAssemblyReference.cache
