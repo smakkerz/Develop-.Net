@@ -32,7 +32,7 @@
                         <a class="page-scroll" href="#Customers">Costumers</a>
                     </li>
                     <li>
-                        <a class="page-scroll"  href="#Catalogue">Catalogue</a>
+                        <a class="page-scroll" href="#Catalogue">Product</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#Invoice">Invoice</a>
@@ -43,7 +43,6 @@
     </nav>
     @RenderBody()
     <a id="back2Top" title="Back to top" href="#">&#10148;</a>
-
     <!-- jQuery -->
     <script src="@Links.Assets.js.jquery_js"></script>
 
@@ -55,7 +54,28 @@
     <script src="@Links.Assets.js.sticky_menu_js"></script>
     <!-- jQuery -->
     <script src="@Links.Scripts.angular_min_js"></script>
+    <script>
+       
+        $(document).ready(function () {            var Msg = $("#Message").val();
+            if (Msg != null && Msg != "")
+            {
+                $("#Response").append("<h2>"+Msg+"</h2>");
+                $("#exampleModal").modal();
+            }
+        });
 
+    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content salt">
+                <div class="modal-body" id="Response"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

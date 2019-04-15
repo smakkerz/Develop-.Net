@@ -18,28 +18,28 @@ namespace Bussiness.Layer
             end.StatusCode = (int)HttpStatusCode.NotAcceptable;
             if (string.IsNullOrEmpty(param.Username))
             {
-                end.Value = "Username is required";
+                end.StatusMessage = "Username is required";
                 return end;
             }
-            if (param.Username.Length > 1)
+            if (param.Username.Split(' ').Length > 1)
             {
-                end.Value = "Username is not valid";
+                end.StatusMessage = "Username is not valid";
                 return end;
             }
             if (string.IsNullOrEmpty(param.Password))
             {
-                end.Value = "Password is required";
+                end.StatusMessage = "Password is required";
                 return end;
             }
             if (string.IsNullOrEmpty(param.Name))
             {
-                end.Value = "Name is required";
+                end.StatusMessage = "Name is required";
                 return end;
             }
             var user = ManageUser.GetAll().FirstOrDefault(x => x.Username == param.Username);
             if(user != null)
             {
-                end.Value = "Username is used";
+                end.StatusMessage = "Username is used";
                 return end;
             }
             end.StatusCode = (int)HttpStatusCode.OK;
@@ -51,28 +51,28 @@ namespace Bussiness.Layer
             end.StatusCode = (int)HttpStatusCode.NotAcceptable;
             if (string.IsNullOrEmpty(param.ID))
             {
-                end.Value = "No Invoice is required";
+                end.StatusMessage = "No Invoice is required";
                 return end;
             }
             if (!param.TransactionDate.HasValue)
             {
-                end.Value = "Transaction Date is required";
+                end.StatusMessage = "Transaction Date is required";
                 return end;
             }
             if (!param.UsersID.HasValue)
             {
-                end.Value = "Customer is required";
+                end.StatusMessage = "Customer is required";
                 return end;
             }
             if(param.Items.Count < 1)
             {
-                end.Value = "List Product is required";
+                end.StatusMessage = "List Product is required";
                 return end;
             }
             var user = ManageUser.GetById(param.UsersID.Value);
             if(user == null)
             {
-                end.Value = "Customer is not found";
+                end.StatusMessage = "Customer is not found";
                 return end;
             }
             foreach(ListInvoiceModel item in param.Items)
@@ -80,7 +80,7 @@ namespace Bussiness.Layer
                 var Product = ManageCatalogue.GetById(item.CatalogueID);
                 if(Product == null)
                 {
-                    end.Value = "Product is not found";
+                    end.StatusMessage = "Product is not found";
                     return end;
                 }
             }
@@ -92,28 +92,28 @@ namespace Bussiness.Layer
             end.StatusCode = (int)HttpStatusCode.NotAcceptable;
             if (string.IsNullOrEmpty(param.Code))
             {
-                end.Value = "No Invoice is required";
+                end.StatusMessage = "No Invoice is required";
                 return end;
             }
             if (!param.Qty.HasValue)
             {
-                end.Value = "Transaction Date is required";
+                end.StatusMessage = "Transaction Date is required";
                 return end;
             }
             if (!param.Price.HasValue)
             {
-                end.Value = "Customer is required";
+                end.StatusMessage = "Customer is required";
                 return end;
             }
             if (param.Price < 1 || param.Qty < 1)
             {
-                end.Value = "Oops...!! Price or Quantity add more";
+                end.StatusMessage = "Oops...!! Price or Quantity add more";
                 return end;
             }
             var catalog = ManageCatalogue.GetAll().FirstOrDefault(x => x.Code == param.Code);
             if (catalog != null)
             {
-                end.Value = "Code is used";
+                end.StatusMessage = "Code is used";
                 return end;
             }
             end.StatusCode = (int)HttpStatusCode.OK;

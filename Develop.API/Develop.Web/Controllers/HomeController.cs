@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Net;
 using System.Configuration;
 using System.Web.Mvc;
 using Common.Lib.RestAPI;
@@ -13,22 +14,54 @@ namespace Develop.Web.Controllers
     {
         public virtual ActionResult Index()
         {
+            var model = new AllModel();
+
             var ListUser = RESTHelper.Get<ResultModel<List<UsersModel>>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["GetAllUser"]);
-            return View(ListUser);
+            var ListCatalogue = RESTHelper.Get<ResultModel<List<CatalogueModel>>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["GetAllCatalague"]);
+            var ListInvoice = RESTHelper.Get<ResultModel<List<InvoiceModel>>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["GetAllInvoice"]);
+
+            if(ListCatalogue != null)
+            {
+                model.ListCatalogues = ListCatalogue.Value;
+            }
+            if(ListInvoice != null)
+            {
+                model.ListInvoices = ListInvoice.Value;
+            }
+            if(ListUser != null)
+            {
+                model.ListUsers = ListUser.Value;
+            }
+            if (TempData.ContainsKey("StatusMessage"))
+                ViewBag.Message = TempData["StatusMessage"];
+
+            return View(model);
         }
 
-        public virtual ActionResult SubmitCatalogue()
+        [HttpPost]
+        public virtual ActionResult SubmitCatalogue(CatalogueModel model)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var Submit = RESTHelper.Post<ResultModel<ResponseModel>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["AddCatalogue"], model);
+            var response = "Success Insert Product";
+            if (Submit.StatusCode != (int)HttpStatusCode.OK)
+            {
+                response = Submit.StatusMessage;
+            }
+            TempData["StatusMessage"] = response;
+            return RedirectToAction(MVC.Home.Index());
         }
 
-        public virtual ActionResult SubmitUser()
+        [HttpPost]
+        public virtual ActionResult SubmitUser(UsersModel model)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var Submit = RESTHelper.Post<ResultModel<ResponseModel>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["AddUser"], model);
+            var response = "Success Insert Customer";
+            if (Submit.StatusCode != (int)HttpStatusCode.OK)
+            {
+                response = Submit.StatusMessage;
+            }
+            TempData["StatusMessage"] = response;
+            return RedirectToAction(MVC.Home.Index());
         }
     }
 }

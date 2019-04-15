@@ -36,7 +36,7 @@ namespace Develop.API.Controllers
                                       TotalPrice = a.TotalPrice
                                   }).ToList();
             res.StatusCode = (int)HttpStatusCode.NotFound;
-            if (datas != null)
+            if (datas != null && datas.Count >= 1)
             {
                 res.StatusCode = (int)HttpStatusCode.OK; res.Value = datas;
             }

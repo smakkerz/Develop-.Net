@@ -59,6 +59,18 @@ namespace Develop.Web.Controllers
             return RedirectToActionPermanent(taskResult.Result);
         }
 
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult SubmitCatalogue()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitCatalogue);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult SubmitUser()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitUser);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public HomeController Actions { get { return MVC.Home; } }
@@ -89,6 +101,22 @@ namespace Develop.Web.Controllers
         }
 
 
+        static readonly ActionParamsClass_SubmitCatalogue s_params_SubmitCatalogue = new ActionParamsClass_SubmitCatalogue();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_SubmitCatalogue SubmitCatalogueParams { get { return s_params_SubmitCatalogue; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_SubmitCatalogue
+        {
+            public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_SubmitUser s_params_SubmitUser = new ActionParamsClass_SubmitUser();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_SubmitUser SubmitUserParams { get { return s_params_SubmitUser; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_SubmitUser
+        {
+            public readonly string model = "model";
+        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -126,24 +154,26 @@ namespace Develop.Web.Controllers
         }
 
         [NonAction]
-        partial void SubmitCatalogueOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void SubmitCatalogueOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Develop.Model.CatalogueModel model);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult SubmitCatalogue()
+        public override System.Web.Mvc.ActionResult SubmitCatalogue(Develop.Model.CatalogueModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitCatalogue);
-            SubmitCatalogueOverride(callInfo);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            SubmitCatalogueOverride(callInfo, model);
             return callInfo;
         }
 
         [NonAction]
-        partial void SubmitUserOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void SubmitUserOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Develop.Model.UsersModel model);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult SubmitUser()
+        public override System.Web.Mvc.ActionResult SubmitUser(Develop.Model.UsersModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitUser);
-            SubmitUserOverride(callInfo);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            SubmitUserOverride(callInfo, model);
             return callInfo;
         }
 

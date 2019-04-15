@@ -71,7 +71,7 @@ namespace Develop.API.Controllers
 
             var ret = ManageUser.GetAll();
             res.StatusCode = (int)HttpStatusCode.NotFound;
-            if (ret != null)
+            if (ret != null && ret.Count >= 1)
             {
                 res.StatusCode = (int)HttpStatusCode.OK; res.Value = ret;
             }

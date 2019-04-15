@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Develop.Model.Object
+namespace Develop.Model
 {
     public class CatalogueModel
     {

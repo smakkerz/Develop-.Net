@@ -60,7 +60,7 @@ namespace Develop.API.Controllers
 
             var ret = ManageCatalogue.GetAll().Where(x => x.Qty > 1).ToList();
             res.StatusCode = (int)HttpStatusCode.NotFound;
-            if (ret != null)
+            if (ret != null && ret.Count >= 1)
             {
                 res.StatusCode = (int)HttpStatusCode.OK; res.Value = ret;
             }
