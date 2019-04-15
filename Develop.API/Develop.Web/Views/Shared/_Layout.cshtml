@@ -46,6 +46,11 @@
     <!-- jQuery -->
     <script src="@Links.Assets.js.jquery_js"></script>
 
+    <!-- Engine Angularjs-->
+    <script src="@Links.Scripts.angular_min_js"></script>
+    <script src="@Links.Scripts.App_js"></script>
+    <script src="@Links.Scripts.MainController_js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="@Links.Assets.js.bootstrap_min_js"></script>
 
@@ -53,13 +58,13 @@
     <script src="@Links.Assets.js.jquery_easing_min_js"></script>
     <script src="@Links.Assets.js.sticky_menu_js"></script>
     <!-- jQuery -->
-    <script src="@Links.Scripts.angular_min_js"></script>
     <script>
-       
-        $(document).ready(function () {            var Msg = $("#Message").val();
-            if (Msg != null && Msg != "")
-            {
-                $("#Response").append("<h2>"+Msg+"</h2>");
+
+        $(document).ready(function () {
+
+            var Msg = $("#Message").val();
+            if (Msg != null && Msg != "") {
+                $("#Response").append("<h2>" + Msg + "</h2>");
                 $("#exampleModal").modal();
             }
         });

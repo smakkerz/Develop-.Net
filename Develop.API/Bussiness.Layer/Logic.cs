@@ -16,6 +16,11 @@ namespace Bussiness.Layer
         private static ResultModel<string> _validationUsers(User param)
         {
             end.StatusCode = (int)HttpStatusCode.NotAcceptable;
+            if (param == null)
+            {
+                end.StatusMessage = "Parameter is empty";
+                return end;
+            }
             if (string.IsNullOrEmpty(param.Username))
             {
                 end.StatusMessage = "Username is required";
@@ -49,6 +54,11 @@ namespace Bussiness.Layer
         private static ResultModel<string> _validationInvoice(InvoiceModel param)
         {
             end.StatusCode = (int)HttpStatusCode.NotAcceptable;
+            if(param == null)
+            {
+                end.StatusMessage = "Parameter is empty";
+                return end;
+            }
             if (string.IsNullOrEmpty(param.ID))
             {
                 end.StatusMessage = "No Invoice is required";
@@ -90,6 +100,11 @@ namespace Bussiness.Layer
         private static ResultModel<string> _validationCatalogue(Catalogue param)
         {
             end.StatusCode = (int)HttpStatusCode.NotAcceptable;
+            if (param == null)
+            {
+                end.StatusMessage = "Parameter is empty";
+                return end;
+            }
             if (string.IsNullOrEmpty(param.Code))
             {
                 end.StatusMessage = "No Invoice is required";

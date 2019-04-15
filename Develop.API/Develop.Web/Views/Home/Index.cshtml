@@ -2,6 +2,7 @@
 @using Develop.Model
 @{
     ViewBag.Title = "Home Page";
+    ResultModel<string> No = ViewBag.NoInvoice != null ? ViewBag.NoInvoice : null;
 }
 
 @model Develop.Model.AllModel
@@ -268,40 +269,70 @@
 <!-- What we do Section -->
 <section id="Invoice" class="whatwedo-section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12" ng-app>
+        <div class="row" ng-app="AppInvoice">
+            <div class="col-lg-12" ng-controller="MainController">
                 <h1>Form Add Invoice</h1>
+                No Invoice @No.Value
                 <br />
-                <form class="form-horizontal" action="/action_page.php">
+                <form class="form-horizontal" action="@Url.Action(MVC.Home.SubmitInvoice())" method="post">
+                    <input type="hidden" id="Count" value="0" />
+                    <input type="hidden" name="ID" value=" @No.Value" />
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="email">Customer :</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="email" placeholder="Enter email">
+                        <div class="col-sm-4">
+                            <select class="form-control" name="UsersID" required>
+                                @if (Model.ListUsers != null)
+                                {
+                                    foreach (var item in Model.ListUsers)
+                                    {
+                                        <option value="@item.ID">@item.Name | @item.Username</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <label class="control-label col-sm-2" for="email">Transaction Date :</label>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control " name="TransactionDate" required />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="pwd">Name Product :</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="email">Quantity :</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="email" placeholder="Enter email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="pwd">Price :</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="pwd">Description :</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="pwd" placeholder="Enter password">
-                        </div>
+                    <div class="col-lg-9 col-lg-offset-1">
+                        <table class="table table-hover rata" id="Items">
+                            <thead class="salt page-scroll">
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Sub Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="ListProduct">
+                                    <td>
+
+                                        <select class="form-control" name="items[0].CatalogueID" id="CatalogueID" required>
+                                            @if (Model.ListCatalogues != null)
+                                            {
+                                                foreach (var item in Model.ListCatalogues)
+                                                {
+                                                    <option value="@item.ID" data-qty="@item.Qty" data-price="@item.Price">@item.Code | @item.Name</option>
+                                                }
+                                            }
+                                        </select>
+                                    </td>
+                                    <td><input type="number" name="items[0].Qty" id="qty" class="form-control" ng-model="qty"  required/></td>
+                                    <td><input type="number" name="items[0].price" id="price" class="form-control" ng-model="price" /></td>
+                                    <td>{{qty * price ? qty * price : 0 | rupiah}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td><button type="button" class="btn btn-primary" onclick="additem()">Add item</button></td>
+                                    <td></td>
+                                    <td>Total : </td>
+                                    <td>{{total() | rupiah}}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
@@ -309,11 +340,6 @@
                         </div>
                     </div>
                 </form>
-                First Name:
-                <input type="text" ng-model="fname" />
-                <br /> Last Name:
-                <input type="text" ng-model="lname" />
-                <br /> Result: {{fname+' '+lname}}
             </div>
         </div>
     </div>

@@ -19,8 +19,8 @@ namespace Develop.Web.Controllers
             var ListUser = RESTHelper.Get<ResultModel<List<UsersModel>>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["GetAllUser"]);
             var ListCatalogue = RESTHelper.Get<ResultModel<List<CatalogueModel>>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["GetAllCatalague"]);
             var ListInvoice = RESTHelper.Get<ResultModel<List<InvoiceModel>>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["GetAllInvoice"]);
-
-            if(ListCatalogue != null)
+            ViewBag.NoInvoice = RESTHelper.Get<ResultModel<string>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["GenerateNoInvoice"]);
+            if (ListCatalogue != null)
             {
                 model.ListCatalogues = ListCatalogue.Value;
             }
@@ -56,6 +56,19 @@ namespace Develop.Web.Controllers
         {
             var Submit = RESTHelper.Post<ResultModel<ResponseModel>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["AddUser"], model);
             var response = "Success Insert Customer";
+            if (Submit.StatusCode != (int)HttpStatusCode.OK)
+            {
+                response = Submit.StatusMessage;
+            }
+            TempData["StatusMessage"] = response;
+            return RedirectToAction(MVC.Home.Index());
+        }
+
+        [HttpPost]
+        public virtual ActionResult SubmitInvoice(InvoiceModel model)
+        {
+            var Submit = RESTHelper.Post<ResultModel<ResponseModel>>(ConfigurationManager.AppSettings["HostAPIURL"] + ConfigurationManager.AppSettings["AddInvoice"], model);
+            var response = "Success Insert Invoice";
             if (Submit.StatusCode != (int)HttpStatusCode.OK)
             {
                 response = Submit.StatusMessage;

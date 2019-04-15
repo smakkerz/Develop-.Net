@@ -71,6 +71,12 @@ namespace Develop.Web.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitUser);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult SubmitInvoice()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitInvoice);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public HomeController Actions { get { return MVC.Home; } }
@@ -90,6 +96,7 @@ namespace Develop.Web.Controllers
             public readonly string Index = "Index";
             public readonly string SubmitCatalogue = "SubmitCatalogue";
             public readonly string SubmitUser = "SubmitUser";
+            public readonly string SubmitInvoice = "SubmitInvoice";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -98,6 +105,7 @@ namespace Develop.Web.Controllers
             public const string Index = "Index";
             public const string SubmitCatalogue = "SubmitCatalogue";
             public const string SubmitUser = "SubmitUser";
+            public const string SubmitInvoice = "SubmitInvoice";
         }
 
 
@@ -114,6 +122,14 @@ namespace Develop.Web.Controllers
         public ActionParamsClass_SubmitUser SubmitUserParams { get { return s_params_SubmitUser; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionParamsClass_SubmitUser
+        {
+            public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_SubmitInvoice s_params_SubmitInvoice = new ActionParamsClass_SubmitInvoice();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_SubmitInvoice SubmitInvoiceParams { get { return s_params_SubmitInvoice; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_SubmitInvoice
         {
             public readonly string model = "model";
         }
@@ -174,6 +190,18 @@ namespace Develop.Web.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitUser);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
             SubmitUserOverride(callInfo, model);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void SubmitInvoiceOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Develop.Model.InvoiceModel model);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult SubmitInvoice(Develop.Model.InvoiceModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitInvoice);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            SubmitInvoiceOverride(callInfo, model);
             return callInfo;
         }
 
