@@ -1,5 +1,4 @@
-﻿@using System.Configuration
-@using Develop.Model
+﻿@using Develop.Model
 @{
     ViewBag.Title = "Home Page";
     ResultModel<string> No = ViewBag.NoInvoice != null ? ViewBag.NoInvoice : null;
@@ -7,8 +6,6 @@
 
 @model Develop.Model.AllModel
 <input type="hidden" id="Message" value="@ViewBag.Message" />
-<input type="hidden" id="HostUrl" value="@ConfigurationManager.AppSettings["HostAPIURL"]" />
-<input type="hidden" id="GetNoInvoice" value="@ConfigurationManager.AppSettings["GenerateNoInvoice"]" />
 <!-- Welcome   -->
 <section id="welcome" class="welcome-section">
     <div class="container">
@@ -316,7 +313,7 @@
                                 <tr id="ListProduct">
                                     <td>
 
-                                        <select class="form-control" name="items[0].CatalogueID" id="CatalogueID[0]" required onchange="changedata($('#Count').val())">
+                                        <select class="form-control" name="items[0].CatalogueID" id="CatalogueID" required onchange="changedata($('#Count').val())">
                                             @if (Model.ListCatalogues != null)
                                             {
                                                 foreach (var item in Model.ListCatalogues)
@@ -326,9 +323,9 @@
                                             }
                                         </select>
                                     </td>
-                                    <td><input type="number" name="items[0].Qty" id="qty[0]" class="form-control" required /></td>
-                                    <td><input type="number" name="items[0].price" id="price[0]" class="form-control" value="12000" disabled /></td>
-                                    <td></td>
+                                    <td><input type="number" name="items[0].Qty" id="qty" class="form-control" required /></td>
+                                    <td><input type="number" name="items[0].price" id="price" class="form-control" value="12000" disabled /></td>
+                                    <td><input type="number" name='total[]' id="Subtotal" placeholder='0.00' class="form-control total" readonly /></td>
                                 </tr>
                             </tbody>
                             <tfoot>

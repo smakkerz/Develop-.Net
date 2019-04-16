@@ -72,11 +72,6 @@ namespace Links
         public const string UrlPath = "~/Scripts";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
-        public static readonly string angular_mocks_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/angular-mocks.min.js") ? Url("angular-mocks.min.js") : Url("angular-mocks.js");
-        public static readonly string angular_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/angular.min.js") ? Url("angular.min.js") : Url("angular.js");
-        public static readonly string angular_min_js = Url("angular.min.js");
-        public static readonly string angular_min_js_map = Url("angular.min.js.map");
-        public static readonly string App_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/App.min.js") ? Url("App.min.js") : Url("App.js");
         public static readonly string MainController_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/MainController.min.js") ? Url("MainController.min.js") : Url("MainController.js");
     }
 
@@ -141,10 +136,6 @@ namespace Links
         {
             public static class Assets
             {
-                public static readonly string angular_mocks_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/angular-mocks.js"); 
-                public static readonly string angular_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/angular.js"); 
-                public static readonly string angular_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/angular.min.js"); 
-                public static readonly string App_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/App.js"); 
                 public static readonly string MainController_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/MainController.js"); 
             }
         }
