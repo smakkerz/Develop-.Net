@@ -85,12 +85,22 @@ namespace Bussiness.Layer
                 end.StatusMessage = "Customer is not found";
                 return end;
             }
+            var No = ManageInvoice.GetById(param.ID);
+            if(No != null)
+            {
+                param.ID = GenerateInvoice().Value;
+            }
             foreach(ListInvoiceModel item in param.Items)
             {
                 var Product = ManageCatalogue.GetById(item.CatalogueID);
                 if(Product == null)
                 {
                     end.StatusMessage = "Product is not found";
+                    return end;
+                }
+                if(Product.Qty < item.Qty)
+                {
+                    end.StatusMessage = "Quantity Product smaller than Request";
                     return end;
                 }
             }
